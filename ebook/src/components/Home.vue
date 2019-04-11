@@ -1,23 +1,27 @@
+<style lang="scss" rel="stylesheet/scss" scoped>
+@import "@/assets/styles/global.scss";
+.home {
+	font-family: "Days One";
+	font-size: px2rem(20);
+	color: orange;
+	.text {
+		font-size: px2rem(20);
+	}
+}
+</style>
+
 <template>
-  <div class="home">
-      <div id="read"></div>
-  </div>
+	<div class="home">
+		1234
+		<div class="text">1234</div>
+		<span class="icon-bookmark"></span>
+	</div>
 </template>
 
 <script>
-import Epub from 'epubjs'
-global.ePub = Epub
 export default {
-  name: 'home',
-  mounted() {
-      this.book = new Epub('/2017_Book_GenomeEditingInNeurosciences.epub')
-      console.log(this.book,'book')
-      this.book.renderTo('read',{
-          width: window.innerWidth,
-          height: window.innerHeight
-      }).display()
-  },
-}
+	name: "home"
+};
 </script>
 
 
