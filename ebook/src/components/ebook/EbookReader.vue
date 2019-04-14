@@ -10,7 +10,7 @@
 import Epub from "epubjs";
 import { mapGetters } from "vuex";
 import axios from "axios";
-import bookHome from "../../mock/bookHome.js"
+// import bookHome from "../../mock/bookHome.js"
 
 global.ePub = Epub;
 
@@ -27,11 +27,20 @@ export default {
 	},
 	methods: {
 		initEpub() {
-			const baseUrl = "/api/epub/";
+			const baseUrl = "/resource/epub/";
 			const url = baseUrl + this.fileName + ".epub";
-			this.book = new Epub('/source/2017_Book_GenomeEditingInNeurosciences.epub')
-			console.log( this.book,bookHome,url);
-			
+			this.book = new Epub(url);
+            // console.log( this.book,bookHome,url);
+            // http://localhost:8092/#/ebook/History|2017_Book_InterdisciplinaryPerspectivesO at
+			this.rendition = this.book.renderTo('read',{
+				width: window.innerWidth,
+				height: window.innerHeight,
+				method: "default"
+            });
+            this.rendition.display()
+			// axios.get('/book/home').then(res =>{
+			//     console.log(res,'123456')
+			// })
 		}
 	}
 };
