@@ -23,20 +23,17 @@
 </template>
 <script>
 import Epub from "epubjs";
-import { mapGetters } from "vuex";
 import axios from "axios";
-// import bookHome from "../../mock/bookHome.js"
+import { ebookMixin } from '../../utils/mixin'
 
 global.ePub = Epub;
 
 export default {
 	name: "EbookReader",
-	computed: {
-		...mapGetters(["fileName","menuVisible"])
-	},
+	mixins: [ebookMixin],
 	mounted() {
 		const fileName = this.$route.params.fileName.split("|").join("/");
-		this.$store.dispatch("setFileName", fileName).then(() => {
+		this.setFileName(fileName).then(() => {
 			this.initEpub();
 		});
 	},
@@ -85,7 +82,7 @@ export default {
 				this.rendition.prev().then(() => {
 					// this.refreshLocation();
 				});
-				// this.hideTitleAndMenu();
+				this.hideTitleAndMenu();//翻页的时候隐藏上下控制栏
 			}
 		},
 		nextPage() {
@@ -93,12 +90,12 @@ export default {
 				this.rendition.next().then(() => {
 					// this.refreshLocation();
 				});
-				// this.hideTitleAndMenu();
+				this.hideTitleAndMenu();//翻页的时候隐藏上下控制栏
 			}
         },
         toggleTitleAndMenu(){
-            this.$store.dispatch('setMenuVisible',!this.menuVisible)
-        }
+            this.setMenuVisible(!this.menuVisible);
+        },
 	}
 };
 </script>
