@@ -32,7 +32,7 @@ global.ePub = Epub;
 export default {
 	name: "EbookReader",
 	computed: {
-		...mapGetters(["fileName"])
+		...mapGetters(["fileName","menuVisible"])
 	},
 	mounted() {
 		const fileName = this.$route.params.fileName.split("|").join("/");
@@ -68,15 +68,12 @@ export default {
 				if (time < 500 && offsetX > 40) {
 					//touch_左
 					this.prevPage();
-					console.log(1);
 				} else if (time < 500 && offsetX < -40) {
 					//touch_右
 					this.nextPage();
-					console.log(12);
 				} else {
 					//touch_中间
-					// this.toggleTitleAndMenu();
-					console.log(123);
+					this.toggleTitleAndMenu();
 				}
 
 				event.preventDefault();
@@ -98,7 +95,10 @@ export default {
 				});
 				// this.hideTitleAndMenu();
 			}
-		}
+        },
+        toggleTitleAndMenu(){
+            this.$store.dispatch('setMenuVisible',!this.menuVisible)
+        }
 	}
 };
 </script>
