@@ -20,7 +20,9 @@
 - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 - source ~/.profile
 
-
-
+### 快速写px2rem()
+- vscode插件 `px to rem with scss`
+- 使用方法 mac :`option c`, win :`clt c`
+- 命令 `command shift G` 到 `/Users/xxx/.vscode/extensions/medzhidov.px-to-rem-with-scss-1.0.3/out/src/extension.js` 将 text 换成 ``text = text.replace(val, `px2rem(${parseInt(val)}px)`);``
 
 
