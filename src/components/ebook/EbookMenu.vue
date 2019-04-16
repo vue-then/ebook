@@ -17,13 +17,13 @@
       </div>
     </transition>
     <ebook-setting-font></ebook-setting-font>
-    
+    <ebook-setting-font-popup></ebook-setting-font-popup>
   </div>
 </template>
 
 <script>
   import EbookSettingFont from './EbookSettingFont'
-//   import EbookSettingFontPopup from './EbookSettingFontPopup'
+  import EbookSettingFontPopup from './EbookSettingFontPopup'
 //   import EbookSettingTheme from './EbookSettingTheme'
 //   import EbookSettingProgess from './EbookSettingProgress'
 //   import EbookSlide from './EbookSlide'
@@ -33,7 +33,7 @@
     mixins: [ebookMixin],
     components: {
       EbookSettingFont,
-    //   EbookSettingFontPopup,
+      EbookSettingFontPopup,
     //   EbookSettingTheme,
     //   EbookSettingProgess,
     //   EbookSlide
