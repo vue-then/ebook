@@ -41,7 +41,8 @@ export default {
 		initEpub() {
 			const baseUrl = "/resource/epub/";
 			const url = baseUrl + this.fileName + ".epub";
-			this.book = new Epub(url);
+            this.book = new Epub(url);
+            this.setCurrentBook(this.book)
 			// console.log( this.book,bookHome,url);
 			// http://localhost:8092/#/ebook/History|2017_Book_InterdisciplinaryPerspectivesO at
 			this.rendition = this.book.renderTo("read", {
@@ -75,7 +76,8 @@ export default {
 
 				event.preventDefault();
 				event.stopPropagation();
-			});
+            });
+            
 		},
 		prevPage() {
 			if (this.rendition) {
