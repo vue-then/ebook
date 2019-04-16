@@ -11,7 +11,7 @@ const mockBookFlatList = require("./src/mock/bookFlatList");
 module.exports = {
 	publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
 	devServer: {
-		port: 8092,
+		port: 8192,
 		before(app) {
 			mock(app, "/book/home", mockBookHomeData);
 			mock(app, "/book/shelf", mockBookShelfData);

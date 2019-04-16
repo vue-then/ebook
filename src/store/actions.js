@@ -4,7 +4,20 @@ const actions = {
 	},
 	setFileName: ({ commit }, fileName) => {
 		return commit("SET_FILENAME", fileName);
-	}
+    },
+    setFontFamilyVisible: ({ commit }, visible) => {
+        return commit('SET_FONT_FAMILY_VISIBLE', visible)
+    },
+    setDefaultFontFamily: ({ commit }, font) => {
+        return commit('SET_DEFAULT_FONT_FAMILY', font)
+    },
+    setDefaultFontSize: ({ commit }, fontSize) => {
+        return commit('SET_DEFAULT_FONT_SIZE', fontSize)
+    },
+    setSettingVisible: ({ commit }, visible) => {
+        return commit('SET_SETTING_VISIBLE', visible)
+    }
+    
 };
 
 export default actions

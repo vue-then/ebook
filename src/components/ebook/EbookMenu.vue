@@ -26,14 +26,10 @@
 //   import EbookSettingTheme from './EbookSettingTheme'
 //   import EbookSettingProgess from './EbookSettingProgress'
 //   import EbookSlide from './EbookSlide'
-//   import { ebookMixin } from '../../utils/mixin'
-
-import {mapGetters} from 'vuex'
+  import { ebookMixin } from '../../utils/mixin'
 
   export default {
-    computed: {
-        ...mapGetters(['menuVisible'])
-    },
+    mixins: [ebookMixin],
     // mixins: [ebookMixin],
     components: {
     //   EbookSettingFont,
@@ -43,9 +39,9 @@ import {mapGetters} from 'vuex'
     //   EbookSlide
     },
     methods: {
-    //   showSetting(key) {
-    //     this.setSettingVisible(key)
-    //   }
+      showSetting(key) {
+        this.setSettingVisible(key)
+      }
     }
   }
 </script>

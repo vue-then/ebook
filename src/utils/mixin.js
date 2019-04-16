@@ -8,7 +8,7 @@ export const ebookMixin = {
         ...mapActions([
             'setFileName',
             'setMenuVisible',
-        
+            'setSettingVisible'
         ]),
         hideTitleAndMenu() {
             this.setMenuVisible(false)
