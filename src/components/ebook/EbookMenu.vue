@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="slide-up">
-      <div class="menu-wrapper" :class="{'hide-box-shadow': !menuVisible }" v-show="menuVisible">
+      <div class="menu-wrapper" :class="{'hide-box-shadow': !menuVisible || settingVisible >= 0 }" v-show="menuVisible">
         <div class="icon-wrapper">
           <span class="icon-menu" @click="showSetting(3)"></span>
         </div>
@@ -16,12 +16,13 @@
         </div>
       </div>
     </transition>
-   
+    <ebook-setting-font></ebook-setting-font>
+    
   </div>
 </template>
 
 <script>
-//   import EbookSettingFont from './EbookSettingFont'
+  import EbookSettingFont from './EbookSettingFont'
 //   import EbookSettingFontPopup from './EbookSettingFontPopup'
 //   import EbookSettingTheme from './EbookSettingTheme'
 //   import EbookSettingProgess from './EbookSettingProgress'
@@ -30,9 +31,8 @@
 
   export default {
     mixins: [ebookMixin],
-    // mixins: [ebookMixin],
     components: {
-    //   EbookSettingFont,
+      EbookSettingFont,
     //   EbookSettingFontPopup,
     //   EbookSettingTheme,
     //   EbookSettingProgess,
