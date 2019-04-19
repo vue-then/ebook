@@ -44,7 +44,10 @@ export default {
 		const fileName = this.$route.params.fileName.split("|").join("/");
 		this.setFileName(fileName).then(() => {
 			this.initEpub();
-		});
+        });
+        // axios.get('/api/ab').then(res =>{
+        //     console.log(res,'123456')
+        // })
 	},
 	methods: {
 		initEpub() {
@@ -58,9 +61,6 @@ export default {
 			// console.log( this.book,bookHome,url);
 			// http://localhost:8092/#/ebook/History|2017_Book_InterdisciplinaryPerspectivesO at
 
-			// axios.get('/book/home').then(res =>{
-			//     console.log(res,'123456')
-			// })
 			this.book.ready
 				.then(() => {
 					return this.book.locations.generate(
@@ -142,6 +142,7 @@ export default {
 			});
 
 			this.rendition.hooks.content.register(contents => {
+                console.log(process.env.VUE_APP_RES_URL,'process.env.VUE_APP_RES_URL')
 				Promise.all([
 					contents.addStylesheet(
 						`${process.env.VUE_APP_RES_URL}/fonts/daysOne.css`

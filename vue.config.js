@@ -17,7 +17,13 @@ module.exports = {
 			mock(app, "/book/shelf", mockBookShelfData);
 			mock(app, "/book/list", mockBookList);
 			mock(app, "/book/flat-list", mockBookFlatList);
+		},
+		proxy: {
+			"/api": {
+                target: "http://192.168.2.9:8089",
+				ws: false,
+				changeOrigin: true //是否跨域
+			}
 		}
 	}
-	
 };
